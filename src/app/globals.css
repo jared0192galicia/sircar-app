@@ -14,12 +14,17 @@
   --color-app-blue-900: #020817;
   --color-app-blue-800: #111D2F;
   --color-app-blue-700: #1E293B;
+  --color-app-blue-500: #1B59BE;
   --color-app-blue-400: #3B82F6;
   
   --color-app-gray-500: #94A3B6;
   --color-app-gray-200: #DAE8F4;
   
   --color-app-white: #F8FAFC;
+
+
+  /* sizing */
+  --spacing-display: calc(100vw - 256px);
 }
 
 @media (prefers-color-scheme: dark) {
