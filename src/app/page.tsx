@@ -5,28 +5,42 @@ import { FileHeart, UserPlus } from "lucide-react";
 
 export default function Home() {
   return (
-    <div className="">
-      <section>
+    <div className="w-full px-4 md:px-0">
+      {" "}
+      {/* Padding lateral en móvil */}
+      <section className="max-w-[1000px] mx-auto">
         <Separator />
-        <div className="flex w-full justify-center items-center h24 flex-col">
+        <div className="flex w-full justify-center items-center flex-col text-center">
           <IconLogo />
-          <p className="text-lg md:text-2xl font-bold text-app-white mt-5">
+          <p className="text-lg md:text-2xl font-bold text-app-white mt-5 px-2">
             Sistema de Información de Riesgo Cardiovascular
           </p>
         </div>
 
         <Separator />
 
-        <picture className="w-full h-full flex items-center justify-center relative">
-          <Image
-            src="/images/hero.webp"
-            alt="Hero Image"
-            width={1000}
-            height={400}
-          />
-          <div className="absolute bottom-16 flex justify-around w-[1000px]">
-            <Button className="2-44" label="Usuarios" icon={<UserPlus />} />
-            <Button className="2-44" label="Entrevista" icon={<FileHeart />} />
+        <picture className="w-full flex flex-col items-center justify-center relative">
+          <div className="relative w-full">
+            <Image
+              src="/images/hero.webp"
+              alt="Hero Image"
+              width={1000}
+              height={400}
+              className="w-full h-auto rounded-lg object-cover min-h-[250px]"
+            />
+            {/* Contenedor de botones: Stack en móvil, fila en escritorio */}
+            <div className="static mt-6 md:mt-0 md:absolute md:bottom-16 flex flex-col md:flex-row justify-around items-center w-full gap-4 md:gap-0">
+              <Button
+                className="w-64 md:w-44"
+                label="Usuarios"
+                icon={<UserPlus />}
+              />
+              <Button
+                className="w-64 md:w-44"
+                label="Entrevista"
+                icon={<FileHeart />}
+              />
+            </div>
           </div>
         </picture>
       </section>
@@ -35,5 +49,6 @@ export default function Home() {
 }
 
 function Separator() {
-  return <div className="h-16"></div>;
+  // Altura reducida en móviles para evitar scroll innecesario (IHC)
+  return <div className="h-8 md:h-16"></div>;
 }
