@@ -20,10 +20,10 @@ type Section = {
 };
 
 const sections: Section[] = [
-  { name: "Dashboard", icon: LayoutDashboard, selected: true, path: "" },
-  { name: "Entrevistas", icon: FileText, selected: false, path: "" },
-  { name: "Análisis de datos", icon: Bot, selected: false, path: "" },
-  { name: "Gestión de usuario", icon: Users, selected: false, path: "" },
+  { name: "Dashboard", icon: LayoutDashboard, selected: true, path: "/" },
+  { name: "Entrevistas", icon: FileText, selected: false, path: "/entrevistas" },
+  { name: "Análisis de datos", icon: Bot, selected: false, path: "/analisis" },
+  { name: "Gestión de usuario", icon: Users, selected: false, path: "/usuarios" },
 ];
 
 export default function Navbar() {
@@ -89,6 +89,7 @@ function Item({ section }: { section: Section }) {
           "bg-app-blue-700 text-app-white font-medium": section.selected,
         },
       )}
+      onClick={() => window.location.href = section.path}
     >
       <Icon className="h-5 w-5" />
       <span className="ml-3">{section.name}</span>
