@@ -6,7 +6,18 @@ import { FileHeart, UserPlus } from "lucide-react";
 export default function Home() {
   return (
     <div className="w-full px-4 md:px-0">
-      {" "}
+      <ul className='circles'>
+        <li className="z-50"></li>
+        <li className="z-50"></li>
+        <li className="z-50"></li>
+        <li className="z-50"></li>
+        <li className="z-50"></li>
+        <li className="z-50"></li>
+        <li className="z-50"></li>
+        <li className="z-50"></li>
+        <li className="z-50"></li>
+        <li className="z-50"></li>
+      </ul>
       {/* Padding lateral en móvil */}
       <section className="max-w-[1000px] mx-auto">
         <Separator />
