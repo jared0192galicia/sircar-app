@@ -55,13 +55,11 @@ export const DataTable = ({
         style={{
           height: `${rowVirtualizer.getTotalSize()}px`,
           width: "100%",
-          minWidth: minWidth, 
+          minWidth: minWidth,
           position: "relative",
         }}
       >
-        {/* Header - Sticky con efecto acrílico/glassmorphism */}
-        {/* CORRECCIÓN 2: Se redujo la opacidad del bg a /60 para que el blur sea visible */}
-        <div 
+        <div
           className="sticky top-0 z-20 flex w-full bg-app-blue-800/30 backdrop-blur-sm"
           style={{ height: `${headerHeight}px` }}
         >

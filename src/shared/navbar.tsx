@@ -47,7 +47,7 @@ export default function Navbar() {
 
       <section
         className={cn(
-          "bg-app-blue-800 h-screen w-[256px] fixed md:static z-45 transition-transform duration-300 ease-in-out",
+          "bg-app-blue-800 h-screen w-[256px] fixed md:static transition-transform duration-300 ease-in-out z-50",
           {
             "translate-x-0": isOpen,
             "-translate-x-full": !isOpen,

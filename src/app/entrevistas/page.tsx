@@ -1,7 +1,16 @@
 "use client";
-import { Column, DataTable } from "@/shared/ui/table/Column";
+import Button from "@/shared/ui/ButtonPrimary";
+import Separator from "@/shared/ui/separator";
+import { Column, DataTable } from "@/shared/ui/table/page";
+import { BadgePlus } from "lucide-react";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
+// import InterviewDialog from "./[id]/page";
 
 export default function Entrevistas() {
+  // const [open, setOpen] = useState(false);
+  const router = useRouter();
+
   const data = Array.from({ length: 5000 }).map((_, i) => ({
     id: i,
     paciente: "Jared Galicia",
@@ -24,8 +33,23 @@ export default function Entrevistas() {
   };
 
   return (
-    <div className="">
-      <div className="p-10 bg-app-blue-800/50 mt-20">
+    <div>
+      <section className="flex justify-between w-full mt-16 px-10">
+        <h1 className="text-2xl font-bold text-app-white mb-4">
+          Gestión de Entrevistas
+        </h1>
+        <Button
+          label="Nueva entrevista"
+          icon={<BadgePlus />}
+          onClick={() => router.push("/entrevistas/nueva")}
+        />
+      </section>
+
+      <Separator />
+      <div className="p-8 bg-app-blue-800/50 rounded-lg m-10">
+        <h2 className="text-xl font-bold text-app-white mb-6">
+          Entrevistas recientes
+        </h2>
         <DataTable value={data} scrollHeight="400px">
           <Column field="paciente" header="Paciente" />
           <Column field="entrevistador" header="Entrevistador" />
@@ -34,6 +58,8 @@ export default function Entrevistas() {
           <Column field="fecha" header="Fecha" />
         </DataTable>
       </div>
+
+      {/* <InterviewDialog open={open} onClose={() => setOpen(false)} /> */}
     </div>
   );
 }
