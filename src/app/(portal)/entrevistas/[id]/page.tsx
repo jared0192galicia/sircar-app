@@ -188,7 +188,6 @@ export default function InterviewPage() {
   );
 }
 
-/* -------------------------------- */
 
 function Section({
   title,
