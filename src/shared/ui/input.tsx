@@ -18,15 +18,7 @@ export default function Input({
 }: InputProps) {
   return (
     <div className={cn("flex flex-col gap-2", className)}>
-      <label
-        className="
-          text-sm
-          font-medium
-          text-app-gray-200
-        "
-      >
-        {label}
-      </label>
+      <label className="text-sm font-medium text-app-text">{label}</label>
 
       <input
         value={value}
@@ -37,8 +29,8 @@ export default function Input({
           "px-3 py-2",
           "rounded-2xl",
           "border",
-          "bg-app-blue-800",
-          "text-app-white",
+          "bg-app-panel",
+          "text-app-text",
           "border-app-gray-200",
           "outline-none",
           "transition-colors",

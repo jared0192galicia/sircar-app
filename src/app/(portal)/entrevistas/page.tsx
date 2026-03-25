@@ -46,8 +46,8 @@ export default function Entrevistas() {
       </section>
 
       <Separator />
-      <div className="p-8 bg-app-blue-800/50 rounded-lg m-10">
-        <h2 className="text-xl font-bold text-app-white mb-6">
+      <div className="p-8 bg-app-panel/50 rounded-lg m-10">
+        <h2 className="text-xl font-bold text-app-text mb-6">
           Entrevistas recientes
         </h2>
         <DataTable value={data} scrollHeight="400px">
@@ -59,7 +59,6 @@ export default function Entrevistas() {
         </DataTable>
       </div>
 
-      {/* <InterviewDialog open={open} onClose={() => setOpen(false)} /> */}
     </div>
   );
 }

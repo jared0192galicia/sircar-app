@@ -48,7 +48,7 @@ export const DataTable = ({
   return (
     <div
       ref={parentRef}
-      className="overflow-auto border border-app-gray-500/20 rounded-xl bg-app-blue-800/75"
+      className="overflow-auto border border-app-border/20 rounded-xl bg-app-panel/70"
       style={{ height: scrollHeight }}
     >
       <div

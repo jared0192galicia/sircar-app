@@ -33,7 +33,7 @@ export default function Navbar() {
     <>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="md:hidden fixed top-4 left-4 z-50 p-2 bg-app-blue-800 text-app-white rounded-md shadow-lg"
+        className="md:hidden fixed top-4 left-4 z-50 p-2 bg-app-panel text-app-text rounded-md shadow-lg"
       >
         {isOpen ? <X size={24} /> : <Menu size={24} />}
       </button>
@@ -47,7 +47,7 @@ export default function Navbar() {
 
       <section
         className={cn(
-          "bg-app-blue-800 h-screen w-[256px] fixed md:static transition-transform duration-300 ease-in-out z-50",
+          "bg-app-panel h-screen w-[256px] fixed md:static transition-transform duration-300 ease-in-out z-50",
           {
             "translate-x-0": isOpen,
             "-translate-x-full": !isOpen,
@@ -57,10 +57,10 @@ export default function Navbar() {
       >
         <div className="flex justify-center gap-3 h-24 items-center">
           <HeartPulse
-            className="text-app-blue-400 h-10 w-8"
+            className="text-app-primary h-10 w-8"
             style={{ fontSize: 22 }}
           />
-          <span className="text-app-white font-bold text-xl">SIRCAR</span>
+          <span className="text-app-text font-bold text-xl">SIRCAR</span>
         </div>
 
         <Separator />
@@ -82,11 +82,11 @@ function Item({ section }: { section: Section }) {
   return (
     <div
       className={cn(
-        "bg-app-blue-800 w-full px-4 py-1 rounded-lg",
-        "flex items-center cursor-pointer text-app-white/80",
-        "hover:bg-app-blue-700 transition-colors",
+        "bg-app-panel w-full px-4 py-1 rounded-lg",
+        "flex items-center cursor-pointer text-app-text/80",
+        "hover:bg-app-subpanel transition-colors",
         {
-          "bg-app-blue-700 text-app-white font-medium": section.selected,
+          "bg-app-subpanel text-app-text font-medium": section.selected,
         },
       )}
       onClick={() => window.location.href = section.path}
@@ -98,5 +98,5 @@ function Item({ section }: { section: Section }) {
 }
 
 function Separator() {
-  return <div className="bg-app-gray-200/20 h-[1px] w-full mb-8"></div>;
+  return <div className="bg-app-border/20 h-[1px] w-full mb-8"></div>;
 }

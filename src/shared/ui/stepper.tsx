@@ -22,7 +22,7 @@ export default function Stepper({ steps, currentStep }: StepperProps) {
       {/* linea progreso */}
       <motion.div
         className="
-          absolute left-0 h-[2px] bg-blue-500"
+          absolute left-0 h-[2px] bg-app-primary"
         initial={{ width: 0 }}
         animate={{
           width: `${((currentStep - 1) / (steps - 1)) * 100}%`,
@@ -52,7 +52,7 @@ export default function Stepper({ steps, currentStep }: StepperProps) {
 
                   "bg-blue-500 text-white": isCompleted,
 
-                  "bg-app-blue-800 text-app-gray-200":
+                  "bg-app-subpanel text-app-gray-200":
                     !isActive && !isCompleted,
                 },
               )}

@@ -67,14 +67,14 @@ export default function InterviewPage() {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-app-blue-900 flex items-center justify-center">
+      <div className="min-h-screen bg-app-panel flex items-center justify-center">
         <Loader2 className="animate-spin text-app-white" size={48} />
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-app-blue-900 flex items-center justify-center flex-col">
+    <div className="min-h-screen bg-apppanel flex items-center justify-center flex-col">
       {/* HEADER */}
       <div className="flex items-center justify-between px-8 py-6 w-full">
         <h2 className="text-2xl font-semibold">
@@ -92,7 +92,7 @@ export default function InterviewPage() {
         initial={{ y: 20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.3, ease: "easeOut" }}
-        className="w-full max-w-6xl rounded-2xl bg-app-blue-800/50 text-app-white shadow-2xl overflow-hidden"
+        className="w-full max-w-6xl rounded-2xl bg-app-panel/50 text-app-text shadow-2xl overflow-hidden"
       >
         {/* STEPPER */}
         <div className="px-8 pb-1 border-b border-white/10">
@@ -179,20 +179,21 @@ export default function InterviewPage() {
             onClick={prev}
             icon={<ArrowLeft />}
           />
-          {step === 5 ? 
-          <Button
-            className=""
-            label="Finalizar"
-            onClick={next}
-            icon={<SaveIcon />} 
-          />
-            : 
-          <Button
-            className="w-12 h-12 text-5xl flex justify-center items-center p-0 rounded-full"
-            label=""
-            onClick={next}
-            icon={<ArrowRight />}
-          />}
+          {step === 5 ? (
+            <Button
+              className=""
+              label="Finalizar"
+              onClick={next}
+              icon={<SaveIcon />}
+            />
+          ) : (
+            <Button
+              className="w-12 h-12 text-5xl flex justify-center items-center p-0 rounded-full"
+              label=""
+              onClick={next}
+              icon={<ArrowRight />}
+            />
+          )}
           {/* /> */}
         </div>
       </motion.div>
