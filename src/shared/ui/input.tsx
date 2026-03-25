@@ -34,7 +34,7 @@ export default function Input({
         onChange={(e) => onChange?.(e.target.value)}
         className={cn(
           "w-full",
-          "px-4 py-3",
+          "px-3 py-2",
           "rounded-2xl",
           "border",
           "bg-app-blue-800",

@@ -12,35 +12,17 @@ export default function Stepper({ steps, currentStep }: StepperProps) {
   const stepArray = Array.from({ length: steps }, (_, i) => i + 1);
 
   return (
-    <div
-      className="
-        w-full
-        flex
-        items-center
-        justify-between
-        relative
-        py-6
-      "
-    >
+    <div className="w-full flex items-center justify-between relative py-6">
       {/* linea base */}
       <div
         className="
-          absolute
-          left-0
-          right-0
-          h-[2px]
-          bg-app-gray-200/30
-        "
+          absolute left-0 right-0 h-[2px] bg-app-gray-200/30"
       />
 
       {/* linea progreso */}
       <motion.div
         className="
-          absolute
-          left-0
-          h-[2px]
-          bg-blue-500
-        "
+          absolute left-0 h-[2px] bg-blue-500"
         initial={{ width: 0 }}
         animate={{
           width: `${((currentStep - 1) / (steps - 1)) * 100}%`,
@@ -55,13 +37,7 @@ export default function Stepper({ steps, currentStep }: StepperProps) {
         return (
           <div
             key={step}
-            className="
-              relative
-              z-10
-              flex
-              items-center
-              justify-center
-            "
+            className="relative z-10 flex items-center justify-center"
           >
             <motion.div
               animate={{
@@ -69,17 +45,7 @@ export default function Stepper({ steps, currentStep }: StepperProps) {
               }}
               transition={{ type: "spring", stiffness: 260, damping: 20 }}
               className={cn(
-                `
-                w-12
-                h-12
-                rounded-full
-                flex
-                items-center
-                justify-center
-                font-semibold
-                text-lg
-                transition-all
-                `,
+                "md:w-12 md:h-12 w-8 h-8 rounded-full flex items-center justify-center font-semibold text-md md:text-lg transition-all",
                 {
                   "bg-blue-500 text-white shadow-[0_0_25px_rgba(59,130,246,0.8)]":
                     isActive,

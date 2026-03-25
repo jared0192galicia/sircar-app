@@ -7,7 +7,7 @@ import Stepper from "@/shared/ui/stepper";
 import Input from "@/shared/ui/input";
 import Dropdown from "@/shared/ui/dropdown";
 import Button from "@/shared/ui/ButtonPrimary";
-import { X, ArrowRight, Loader2 } from "lucide-react";
+import { X, ArrowRight, Loader2, ArrowLeft, SaveIcon } from "lucide-react";
 import cn from "@/services/clsx";
 
 export default function InterviewPage() {
@@ -35,15 +35,12 @@ export default function InterviewPage() {
 
   useEffect(() => {
     if (!isNew) {
-      // Simulación de petición a tu API para consultar la entrevista
       const fetchInterview = async () => {
         try {
           setIsLoading(true);
-          // Reemplaza esta URL con tu endpoint real
           const response = await fetch(`/api/entrevistas/${id}`);
           if (response.ok) {
             const data = await response.json();
-            // setFormData(data); // Poblamos el formulario con los datos recibidos
           }
         } catch (error) {
           console.error("Error al consultar el cuestionario:", error);
@@ -77,7 +74,7 @@ export default function InterviewPage() {
   }
 
   return (
-    <div className="min-h-screen bg-app-blue-900 flex items-center justify-center p-6 flex-col">
+    <div className="min-h-screen bg-app-blue-900 flex items-center justify-center flex-col">
       {/* HEADER */}
       <div className="flex items-center justify-between px-8 py-6 w-full">
         <h2 className="text-2xl font-semibold">
@@ -98,7 +95,7 @@ export default function InterviewPage() {
         className="w-full max-w-6xl rounded-2xl bg-app-blue-800/50 text-app-white shadow-2xl overflow-hidden"
       >
         {/* STEPPER */}
-        <div className="px-8 pb-3 border-b border-white/10">
+        <div className="px-8 pb-1 border-b border-white/10">
           <Stepper steps={5} currentStep={step} />
         </div>
 
@@ -175,19 +172,33 @@ export default function InterviewPage() {
         </div>
 
         {/* FOOTER */}
-        <div className="flex justify-end gap-4 px-8 py-6 border-t border-white/10">
+        <div className="flex justify-center gap-4 px-8 py-6 border-t border-white/10">
           <Button
-            className="w-64 md:w-44"
-            label="Siguiente"
+            className="w-12 h-12 text-5xl flex justify-center items-center p-0 rounded-full"
+            label=""
+            onClick={prev}
+            icon={<ArrowLeft />}
+          />
+          {step === 5 ? 
+          <Button
+            className=""
+            label="Finalizar"
+            onClick={next}
+            icon={<SaveIcon />} 
+          />
+            : 
+          <Button
+            className="w-12 h-12 text-5xl flex justify-center items-center p-0 rounded-full"
+            label=""
             onClick={next}
             icon={<ArrowRight />}
-          />
+          />}
+          {/* /> */}
         </div>
       </motion.div>
     </div>
   );
 }
-
 
 function Section({
   title,

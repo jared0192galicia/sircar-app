@@ -16,11 +16,11 @@ export default function Button({
   return (
     <button
       className={cn(
-        className,
         "w-fit h-12 bg-app-blue-400 text-app-white font-bold py-2 px-4 rounded-lg",
         "cursor-pointer flex items-center gap-2",
         "transition-colors duration-300",
         "hover:bg-app-blue-500",
+        className,
       )}
       onClick={onClick}
     >
