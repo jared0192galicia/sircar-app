@@ -18,7 +18,7 @@ export default function Input({
 }: InputProps) {
   return (
     <div className={cn("flex flex-col gap-2", className)}>
-      <label className="text-sm font-medium text-app-text">{label}</label>
+      <label className="text-sm font-medium text-app-title">{label}</label>
 
       <input
         value={value}
@@ -30,7 +30,7 @@ export default function Input({
           "rounded-2xl",
           "border",
           "bg-app-panel",
-          "text-app-text",
+          "text-app-title",
           "border-app-gray-200",
           "outline-none",
           "transition-colors",

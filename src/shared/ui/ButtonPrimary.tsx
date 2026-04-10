@@ -16,7 +16,7 @@ export default function Button({
   return (
     <button
       className={cn(
-        "w-fit h-12 bg-app-primary text-app-text font-bold py-2 px-4 rounded-lg",
+        "w-fit h-12 bg-app-primary text-app-title font-bold py-2 px-4 rounded-lg",
         "cursor-pointer flex items-center gap-2",
         "transition-colors duration-300",
         "hover:bg-app-secondary",

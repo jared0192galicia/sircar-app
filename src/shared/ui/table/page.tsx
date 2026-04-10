@@ -60,13 +60,13 @@ export const DataTable = ({
         }}
       >
         <div
-          className="sticky top-0 z-20 flex w-full bg-app-blue-800/30 backdrop-blur-sm"
+          className="sticky top-0 z-20 flex w-full bg-app-subpanel/30 backdrop-blur-sm"
           style={{ height: `${headerHeight}px` }}
         >
           {columns.map((col, i) => (
             <div
               key={i}
-              className="px-4 text-slate-400 text-sm font-semibold flex items-center"
+              className="px-4 text-app-text text-sm font-semibold flex items-center"
               style={{
                 width: col.width || `${100 / columns.length}%`,
                 flex: col.width ? "none" : 1,
@@ -94,7 +94,7 @@ export const DataTable = ({
                 {columns.map((col, i) => (
                   <div
                     key={i}
-                    className="p-4 text-slate-300 text-sm truncate"
+                    className="p-4 text-app-text text-sm truncate"
                     style={{
                       width: col.width || `${100 / columns.length}%`,
                       flex: col.width ? "none" : 1,

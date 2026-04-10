@@ -27,7 +27,7 @@ export default function LoginForm() {
             type="text"
             placeholder="Usuario o Correo"
             className={cn(
-              "w-full h-14 pl-14 pr-6 bg-transparent border-2 border-app-gray-200/20 rounded-2xl text-app-text",
+              "w-full h-14 pl-14 pr-6 bg-transparent border-2 border-app-gray-200/20 rounded-2xl text-app-title",
               "placeholder-app-gray-500 outline-none focus:border-app-primary transition-all text-lg",
             )}
           />
@@ -46,14 +46,14 @@ export default function LoginForm() {
             type={showPassword ? "text" : "password"}
             placeholder="Contraseña"
             className={cn(
-              "w-full h-14 pl-14 pr-14 bg-transparent border-2 border-app-gray-200/20 rounded-2xl text-app-text",
+              "w-full h-14 pl-14 pr-14 bg-transparent border-2 border-app-gray-200/20 rounded-2xl text-app-title",
               "placeholder-app-gray-500 outline-none focus:border-app-primary textapp-primary transition-all text-lg",
             )}
           />
           <button
             type="button"
             onClick={() => setShowPassword(!showPassword)}
-            className="absolute inset-y-0 right-5 flex items-center text-app-gray-500 hover:text-app-text transition-colors"
+            className="absolute inset-y-0 right-5 flex items-center text-app-gray-500 hover:text-app-title transition-colors"
           >
             {showPassword ? (
               <EyeOff size={24} strokeWidth={1.5} />
@@ -68,7 +68,7 @@ export default function LoginForm() {
 
         <Button
           label="Ingresar"
-          className="my-6 m-auto border-app-text/60 border"
+          className="my-6 m-auto border-app-title/60 border"
           icon={<LogIn />}
         ></Button>
       </div>

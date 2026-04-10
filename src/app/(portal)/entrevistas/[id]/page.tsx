@@ -92,7 +92,7 @@ export default function InterviewPage() {
         initial={{ y: 20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.3, ease: "easeOut" }}
-        className="w-full max-w-6xl rounded-2xl bg-app-panel/50 text-app-text shadow-2xl overflow-hidden"
+        className="w-full max-w-6xl rounded-2xl bg-app-panel/50 text-app-title shadow-2xl overflow-hidden"
       >
         {/* STEPPER */}
         <div className="px-8 pb-1 border-b border-white/10">
@@ -210,7 +210,7 @@ function Section({
 }) {
   return (
     <div className="mb-5">
-      <h4 className="text-lg font-semibold mb-4 text-app-gray-200">{title}</h4>
+      <h4 className="text-lg font-semibold mb-4 text-app-text">{title}</h4>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">{children}</div>
     </div>

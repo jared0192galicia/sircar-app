@@ -2,38 +2,62 @@
 @import "./scrollbar.css";
 
 :root {
+  /* Paleta por defecto (Dark Mode) */
   --background: #020817;
-  --foreground: #FFF;
+  --foreground: #2966a3;
+  --circles: rgba(255, 255, 255, 0.2);
+  
+  --app-background: #020817;
+  --app-panel: #111D2F;
+  --app-subpanel: #1E293B;
+  --app-secondary: #1B59BE;
+  --app-primary: #3B82F6;
+  --app-border: #1E293B; /* Ajustado para dark */
+  --app-gray-500: #94A3B6;
+  --app-gray-200: #c4ccd7;
+  --app-title: #F8FAFC;
+  --app-text: #c4ccd7;
+}
+
+/* Selector para Tema Claro */
+.light {
+  --background: #F1F7F7;
+  /* --background: #eff4f4; */
+  --foreground: #0C1F1D;
+  
+  --app-background: #eff4f4;
+  --app-panel: #d9dee3;
+  --app-subpanel: #E6F1F2;
+  --app-secondary: #3B82F6;
+  --app-primary: #3B82F6;
+  --app-border: #D4E6E8;
+  --app-gray-500: #94A3B6;
+  --app-gray-200: #c4ccd7;
+  --app-title: #102A2E;
+  --app-text: #203847;
+  --circles: #c9dddfab;
 }
 
 @theme inline {
+  /* Mapeo de variables de Tailwind a variables CSS */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  
+  --color-app-background: var(--app-background);
+  --color-app-panel: var(--app-panel);
+  --color-app-subpanel: var(--app-subpanel);
+  --color-app-secondary: var(--app-secondary);
+  --color-app-primary: var(--app-primary);
+  --color-app-border: var(--app-border);
+  --color-app-gray-500: var(--app-gray-500);
+  --color-app-gray-200: var(--app-gray-200);
+  --color-app-title: var(--app-title);
+  --color-app-text: var(--app-text);
+
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
   
-  --color-app-background: #020817;
-  --color-app-panel: #111D2F;
-  --color-app-subpanel: #1E293B;
-  --color-app-secondary: #1B59BE;
-  --color-app-primary: #3B82F6;
-  
-  --color-app-border: #94A3B6;
-  --color-app-gray-500: #94A3B6;
-  --color-app-gray-200: #DAE8F4;
-  
-  --color-app-text: #F8FAFC;
-
-
-  /* sizing */
   --spacing-display: calc(100vw - 256px);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #020817;
-    --foreground: #ededed;
-  }
 }
 
 @font-face {
@@ -45,8 +69,8 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
-
 /* Animación de home */
 
 @keyframes animate {
@@ -79,7 +103,7 @@ body {
   list-style: none;
   width: 20px;
   height: 20px;
-  background: rgba(255, 255, 255, 0.2);
+  background: var(--circles);
   animation: animate 25s linear infinite;
   bottom: -150px;
 }

@@ -47,7 +47,7 @@ export default function Entrevistas() {
 
       <Separator />
       <div className="p-8 bg-app-panel/50 rounded-lg m-10">
-        <h2 className="text-xl font-bold text-app-text mb-6">
+        <h2 className="text-xl font-bold text-app-title mb-6">
           Entrevistas recientes
         </h2>
         <DataTable value={data} scrollHeight="400px">
