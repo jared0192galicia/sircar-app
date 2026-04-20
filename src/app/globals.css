@@ -12,6 +12,7 @@
   --app-subpanel: #1E293B;
   --app-secondary: #1B59BE;
   --app-primary: #3B82F6;
+  --app-navbar: #111D2F;
   --app-border: #1E293B; /* Ajustado para dark */
   --app-gray-500: #94A3B6;
   --app-gray-200: #c4ccd7;
@@ -21,20 +22,21 @@
 
 /* Selector para Tema Claro */
 .light {
-  --background: #F1F7F7;
+  --background: #E2E9EE;
   /* --background: #eff4f4; */
   --foreground: #0C1F1D;
   
-  --app-background: #eff4f4;
-  --app-panel: #d9dee3;
+  --app-background: #E2E9EE;
+  --app-panel: #FFF;
   --app-subpanel: #E6F1F2;
   --app-secondary: #3B82F6;
   --app-primary: #3B82F6;
+  --app-navbar: #07445E;
   --app-border: #D4E6E8;
   --app-gray-500: #94A3B6;
   --app-gray-200: #c4ccd7;
-  --app-title: #102A2E;
-  --app-text: #203847;
+  --app-title: #2D3E54;
+  --app-text: #557889;
   --circles: #c9dddfab;
 }
 
@@ -48,6 +50,7 @@
   --color-app-subpanel: var(--app-subpanel);
   --color-app-secondary: var(--app-secondary);
   --color-app-primary: var(--app-primary);
+  --color-app-navbar: var(--app-navbar);
   --color-app-border: var(--app-border);
   --color-app-gray-500: var(--app-gray-500);
   --color-app-gray-200: var(--app-gray-200);

@@ -34,7 +34,7 @@ export default function Navbar() {
     <>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="md:hidden fixed top-4 left-4 z-50 p-2 bg-app-panel text-app-title rounded-md shadow-lg"
+        className="md:hidden fixed top-4 left-4 z-50 p-2 bg-app-navbar text-app-title rounded-md shadow-lg"
       >
         {isOpen ? <X size={24} /> : <Menu size={24} />}
       </button>
@@ -48,7 +48,7 @@ export default function Navbar() {
 
       <section
         className={cn(
-          "bg-[#111D2F] h-screen w-[256px] fixed md:static transition-transform duration-300 ease-in-out z-50",
+          "bg-app-navbar h-screen w-[256px] fixed md:static transition-transform duration-300 ease-in-out z-50",
           {
             "translate-x-0": isOpen,
             "-translate-x-full": !isOpen,
@@ -61,7 +61,7 @@ export default function Navbar() {
             className="text-app-primary h-10 w-8"
             style={{ fontSize: 22 }}
           />
-          <span className="text-app-title font-bold text-xl">SIRCAR</span>
+          <span className="text-white font-bold text-xl">SIRCAR</span>
         </div>
 
         <Separator />
@@ -87,8 +87,8 @@ function Item({ section }: { section: Section }) {
   return (
     <div
       className={cn(
-        "bg-app-panel w-full px-4 py-1 rounded-lg",
-        "flex items-center cursor-pointer text-app-title/80",
+        "w-full px-4 py-1 rounded-lg",
+        "flex items-center cursor-pointer text-white hover:text-app-text",
         "hover:bg-app-subpanel transition-colors",
         {
           "bg-app-subpanel text-app-title font-medium": section.selected,
