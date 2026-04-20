@@ -8,7 +8,7 @@ import Input from "@/shared/ui/input";
 import Dropdown from "@/shared/ui/dropdown";
 import Button from "@/shared/ui/ButtonPrimary";
 import { X, ArrowRight, Loader2, ArrowLeft, SaveIcon } from "lucide-react";
-import cn from "@/services/clsx";
+import Identification from "@/components/form/identification";
 
 export default function InterviewPage() {
   const params = useParams();
@@ -17,7 +17,7 @@ export default function InterviewPage() {
 
   const isNew = id === "nueva";
 
-  const [step, setStep] = useState(3);
+  const [step, setStep] = useState(1);
   const [isLoading, setIsLoading] = useState(!isNew);
 
   // Estado para controlar los valores del formulario
@@ -52,6 +52,8 @@ export default function InterviewPage() {
       fetchInterview();
     }
   }, [id, isNew]);
+
+  const sections = [<Identification />];
 
   function next() {
     setStep((s) => Math.min(5, s + 1));
@@ -92,84 +94,14 @@ export default function InterviewPage() {
         initial={{ y: 20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.3, ease: "easeOut" }}
-        className="w-full max-w-6xl rounded-2xl bg-app-panel/50 text-app-title shadow-2xl overflow-hidden"
+        className="w-full max-w-6xl rounded-2xl bg-app-panel/50 text-app-title shadow-2xl !overflow-scroll !max-h-screen"
       >
         {/* STEPPER */}
         <div className="px-8 pb-1 border-b border-white/10">
           <Stepper steps={5} currentStep={step} />
         </div>
 
-        {/* CONTENT */}
-        <div className="px-8 pt-8">
-          <h3 className="text-xl font-semibold mb-6">
-            Factores de riesgo cardiovasculares
-          </h3>
-
-          {/* PRESION */}
-          <Section title="Presión arterial">
-            <Input
-              label="Presión Sistólica (mmHg)"
-              value={formData.presionSistolica}
-              onChange={(e) =>
-                setFormData({ ...formData, presionSistolica: e })
-              }
-            />
-            <Input
-              label="Presión Diastólica (mmHg)"
-              value={formData.presionDiastolica}
-              onChange={(e) =>
-                setFormData({ ...formData, presionDiastolica: e })
-              }
-            />
-            <Dropdown
-              label="Tratamiento antihipertensivo"
-              value={formData.tratamiento}
-              onChange={(val) => setFormData({ ...formData, tratamiento: val })}
-              options={[
-                { label: "Sí", value: "yes" },
-                { label: "No", value: "no" },
-              ]}
-            />
-          </Section>
-
-          {/* PERFIL LIPIDICO */}
-          <Section title="Perfil Lipídico">
-            <Input
-              label="Colesterol total"
-              value={formData.colesterol}
-              onChange={(e) => setFormData({ ...formData, colesterol: e })}
-            />
-            <Input
-              label="HDL"
-              value={formData.hdl}
-              onChange={(e) => setFormData({ ...formData, hdl: e })}
-            />
-            <Input
-              label="LDL"
-              value={formData.ldl}
-              onChange={(e) => setFormData({ ...formData, ldl: e })}
-            />
-          </Section>
-
-          {/* PERFIL LIPIDICO 2 */}
-          <Section title="Perfil Lipídico">
-            <Input
-              label="Triglicéridos"
-              value={formData.trigliceridos}
-              onChange={(e) => setFormData({ ...formData, trigliceridos: e })}
-            />
-            <Input
-              label="VLDL"
-              value={formData.vldl}
-              onChange={(e) => setFormData({ ...formData, vldl: e })}
-            />
-            <Input
-              label="Otro valor"
-              value={formData.otro}
-              onChange={(e) => setFormData({ ...formData, otro: e })}
-            />
-          </Section>
-        </div>
+        {sections[0]}
 
         {/* FOOTER */}
         <div className="flex justify-center gap-4 px-8 py-6 border-t border-white/10">

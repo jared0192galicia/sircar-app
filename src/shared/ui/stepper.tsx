@@ -45,7 +45,7 @@ export default function Stepper({ steps, currentStep }: StepperProps) {
               }}
               transition={{ type: "spring", stiffness: 260, damping: 20 }}
               className={cn(
-                "md:w-12 md:h-12 w-8 h-8 rounded-full flex items-center justify-center font-semibold text-md md:text-lg transition-all",
+                "md:w-10 md:h-10 w-8 h-8 rounded-full flex items-center justify-center font-semibold text-md md:text-lg transition-all",
                 {
                   "bg-blue-500 text-white shadow-[0_0_25px_rgba(59,130,246,0.8)]":
                     isActive,
