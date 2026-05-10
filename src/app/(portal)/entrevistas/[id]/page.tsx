@@ -9,6 +9,10 @@ import Dropdown from "@/shared/ui/dropdown";
 import Button from "@/shared/ui/ButtonPrimary";
 import { X, ArrowRight, Loader2, ArrowLeft, SaveIcon } from "lucide-react";
 import Identification from "@/components/form/identification";
+import FamilyHistory from "@/components/form/familyHistory";
+import CardiovascularRisk from "@/components/form/cardiovascularRisk";
+import BodyComposition from "@/components/form/bodyComposition";
+import PhysicalActivity from "@/components/form/physicalActivity";
 
 export default function InterviewPage() {
   const params = useParams();
@@ -53,7 +57,13 @@ export default function InterviewPage() {
     }
   }, [id, isNew]);
 
-  const sections = [<Identification />];
+  const sections = [
+    <Identification />,
+    <FamilyHistory />,
+    <CardiovascularRisk />,
+    <BodyComposition />,
+    <PhysicalActivity />,
+  ];
 
   function next() {
     setStep((s) => Math.min(5, s + 1));
@@ -101,7 +111,7 @@ export default function InterviewPage() {
           <Stepper steps={5} currentStep={step} />
         </div>
 
-        {sections[0]}
+        {sections[step - 1]}
 
         {/* FOOTER */}
         <div className="flex justify-center gap-4 px-8 py-6 border-t border-white/10">
@@ -129,22 +139,6 @@ export default function InterviewPage() {
           {/* /> */}
         </div>
       </motion.div>
-    </div>
-  );
-}
-
-function Section({
-  title,
-  children,
-}: {
-  title: string;
-  children: React.ReactNode;
-}) {
-  return (
-    <div className="mb-5">
-      <h4 className="text-lg font-semibold mb-4 text-app-text">{title}</h4>
-
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">{children}</div>
     </div>
   );
 }

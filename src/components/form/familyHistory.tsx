@@ -4,7 +4,7 @@ import Input from "@/shared/ui/input";
 import { useFormStore } from "@/stores/FormState";
 import { Tittle } from "./utils";
 
-export default function Identification() {
+export default function FamilyHistory() {
   const {
     nombres,
     sexo,
@@ -20,21 +20,21 @@ export default function Identification() {
   } = useFormStore();
   return (
     <div className="px-8 pt-8">
-      <Tittle label="Identificación" />
+      <Tittle label="Antecedentes Heredofamiliares" />
 
-      <Section title="Documento">
+      <Section title="Antecedentes">
         <Input
-          label="Entrevistador"
+          label="Familiares Cardiovasculares"
           value={entrevistador}
           onChange={(e) => updateField('entrevistador', e)}
         />
         <Input
-          label="No. de caso"
+          label="Hipertensión"
           value={numeroCaso}
           onChange={(e) => updateField('numeroCaso', e)}
         />
         <Dropdown
-          label="Fecha de evaluación"
+          label="Neoplasias"
           value={fechaEvaluacion}
           onChange={(val) => updateField('fechaEvaluacion', val)}
           options={[
@@ -42,10 +42,26 @@ export default function Identification() {
             { label: "No", value: "no" },
           ]}
         />
+        
+        <Input
+          label="Diabetes"
+          value={numeroCaso}
+          onChange={(e) => updateField('numeroCaso', e)}
+        />
+        <Input
+          label="Tabaquismo"
+          value={numeroCaso}
+          onChange={(e) => updateField('numeroCaso', e)}
+        />
+        <Input
+          label="Parentesco"
+          value={numeroCaso}
+          onChange={(e) => updateField('numeroCaso', e)}
+        />
       </Section>
 
       {/* PERFIL LIPIDICO */}
-      <Section title="Información peronal">
+      {/* <Section title="Información peronal">
         <Input
           label="Nombres"
           value={nombres}
@@ -81,7 +97,7 @@ export default function Identification() {
           value={edadCumplidos as unknown as  string}
           onChange={(e) => updateField('edadCumplidos', parseInt(e))}
         />
-      </Section>
+      </Section> */}
     </div>
   );
 }
