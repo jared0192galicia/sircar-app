@@ -34,7 +34,7 @@ export default function CardiovascularRisk() {
           onChange={(e) => updateField('numeroCaso', e)}
         />
         <Dropdown
-          label="Detección Oportuna"
+          label="Diagnóstico presión"
           value={fechaEvaluacion}
           onChange={(val) => updateField('fechaEvaluacion', val)}
           options={[

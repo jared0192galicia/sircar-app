@@ -1,8 +1,11 @@
-import { ActividadFisica, FormState } from '@/models/form';
-import { create } from 'zustand';
+import { ActividadFisica, FormState } from "@/models/form";
+import { create } from "zustand";
 
 interface FormStore extends FormState {
-  updateField: <K extends keyof FormState>(field: K, value: FormState[K]) => void;
+  updateField: <K extends keyof FormState>(
+    field: K,
+    value: FormState[K],
+  ) => void;
   updateActividadFisica: (data: Partial<ActividadFisica>) => void;
   resetForm: () => void;
 }
@@ -62,24 +65,27 @@ const initialState: FormState = {
     diasSemana: null,
     minutosDia: null,
     promedio: null,
-    nivelIntensidad: ""
+    nivelIntensidad: "",
   },
   requierePruebaGlucosa: "",
   cifraGlicemia: "",
   riesgoGeneral: "",
-  observaciones: ""
+  observaciones: "",
+  minutosActividadFisica: 0,
+  diasActividadFisica: 0,
+  promedioActividadFisica: 0,
+  nivelActividadFisica: 0,
 };
 
 export const useFormStore = create<FormStore>((set) => ({
   ...initialState,
 
-  updateField: (field, value) => 
-    set((state) => ({ ...state, [field]: value })),
+  updateField: (field, value) => set((state) => ({ ...state, [field]: value })),
 
   updateActividadFisica: (data) =>
     set((state) => ({
-      actividadFisica: { ...state.actividadFisica, ...data }
+      actividadFisica: { ...state.actividadFisica, ...data },
     })),
 
-  resetForm: () => set(initialState)
+  resetForm: () => set(initialState),
 }));

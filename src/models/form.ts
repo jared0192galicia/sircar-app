@@ -63,4 +63,8 @@ export interface FormState {
   cifraGlicemia: string;
   riesgoGeneral: string;
   observaciones: string;
+  minutosActividadFisica: number;
+  diasActividadFisica: number;
+  promedioActividadFisica: number;
+  nivelActividadFisica: any;
 }

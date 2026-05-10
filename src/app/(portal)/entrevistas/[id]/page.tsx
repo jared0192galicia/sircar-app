@@ -13,6 +13,7 @@ import FamilyHistory from "@/components/form/familyHistory";
 import CardiovascularRisk from "@/components/form/cardiovascularRisk";
 import BodyComposition from "@/components/form/bodyComposition";
 import PhysicalActivity from "@/components/form/physicalActivity";
+import Aditionals from "@/components/form/aditionals";
 
 export default function InterviewPage() {
   const params = useParams();
@@ -63,10 +64,12 @@ export default function InterviewPage() {
     <CardiovascularRisk />,
     <BodyComposition />,
     <PhysicalActivity />,
+    <Aditionals />,
   ];
 
   function next() {
-    setStep((s) => Math.min(5, s + 1));
+    
+    setStep((s) => Math.min(sections.length, s + 1));
   }
 
   function prev() {
@@ -108,10 +111,12 @@ export default function InterviewPage() {
       >
         {/* STEPPER */}
         <div className="px-8 pb-1 border-b border-white/10">
-          <Stepper steps={5} currentStep={step} />
+          <Stepper steps={sections.length} currentStep={step} />
         </div>
 
-        <div className="flex-1">{sections[step - 1]}</div>
+        <div className="flex-1">{sections[step - 1]}
+          {step - 1}
+        </div>
 
         {/* FOOTER */}
         <div className="flex justify-center gap-4 px-8 py-6 border-t border-white/10">
@@ -121,7 +126,7 @@ export default function InterviewPage() {
             onClick={prev}
             icon={<ArrowLeft />}
           />
-          {step === 5 ? (
+          {step === sections.length ? (
             <Button
               className=""
               label="Finalizar"

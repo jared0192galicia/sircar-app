@@ -6,17 +6,20 @@ import { Tittle } from "./utils";
 
 export default function BodyComposition() {
   const {
-    nombres,
-    sexo,
-    fechaEvaluacion,
-    numeroCaso,
-    licenciatura,
-    apellidoMaterno,
-    apellidoPaterno,
-    edadCumplidos,
-    grupo,
     updateField,
-    entrevistador,
+    pesoKg,
+    tallaMts,
+    imc,
+    categoriaImc,
+    circunferenciaCinturaCm,
+    circunferenciaCaderaCm,
+    riesgoCadera,
+    riesgoCintura,
+    porcentajeGrasaCorporal,
+    grasaVisceralValor,
+    masaMuscularKg,
+    porcentajeAguaCorporal,
+    edadMetabolica,
   } = useFormStore();
   return (
     <div className="px-8 pt-8">
@@ -25,19 +28,19 @@ export default function BodyComposition() {
       <Section title="">
         <Input
           label="Peso (Kg)"
-          value={entrevistador}
-          onChange={(e) => updateField('entrevistador', e)}
+          value={pesoKg || 0}
+          onChange={(e) => updateField("pesoKg", parseInt(e))}
         />
         <Input
           label="Talla (metros)"
-          value={numeroCaso}
-          onChange={(e) => updateField('numeroCaso', e)}
+          value={tallaMts || 0}
+          onChange={(e) => updateField("tallaMts", parseInt(e))}
         />
         <Dropdown
           label="IMC"
-          value={fechaEvaluacion}
+          value={imc || 0}
           placeholder="POSIBLE CALCULADO"
-          onChange={(val) => updateField('fechaEvaluacion', val)}
+          onChange={(val) => updateField("imc", parseInt(val))}
           options={[
             { label: "Sí", value: "yes" },
             { label: "No", value: "no" },
@@ -45,9 +48,9 @@ export default function BodyComposition() {
         />
         <Dropdown
           label="Categoría de IMC"
-          value={fechaEvaluacion}
+          value={categoriaImc || ""}
           placeholder="POSIBLE CALCULADO"
-          onChange={(val) => updateField('fechaEvaluacion', val)}
+          onChange={(val) => updateField("categoriaImc", val)}
           options={[
             { label: "Sí", value: "yes" },
             { label: "No", value: "no" },
@@ -55,18 +58,18 @@ export default function BodyComposition() {
         />
         <Input
           label="Circunferencia de la cintura (cm)"
-          value={entrevistador}
-          onChange={(e) => updateField('entrevistador', e)}
+          value={circunferenciaCinturaCm || 0}
+          onChange={(e) => updateField("circunferenciaCinturaCm", parseInt(e))}
         />
         <Input
           label="Circunferencia de la cadera (cm)"
-          value={numeroCaso}
-          onChange={(e) => updateField('numeroCaso', e)}
+          value={circunferenciaCaderaCm || 0}
+          onChange={(e) => updateField("circunferenciaCaderaCm", parseInt(e))}
         />
         <Dropdown
           label="Riesgo por cintura"
-          value={fechaEvaluacion}
-          onChange={(val) => updateField('fechaEvaluacion', val)}
+          value={riesgoCintura || ""}
+          onChange={(val) => updateField("riesgoCintura", val)}
           options={[
             { label: "Sí", value: "yes" },
             { label: "No", value: "no" },
@@ -74,14 +77,38 @@ export default function BodyComposition() {
         />
         <Dropdown
           label="Riesgo por cadera"
-          value={fechaEvaluacion}
-          onChange={(val) => updateField('fechaEvaluacion', val)}
+          value={riesgoCadera || ""}
+          onChange={(val) => updateField("riesgoCadera", val)}
           options={[
             { label: "Sí", value: "yes" },
             { label: "No", value: "no" },
           ]}
         />
-        
+        <Input
+          label="Grasa Corporal"
+          value={porcentajeGrasaCorporal || 0}
+          onChange={(e) => updateField("porcentajeGrasaCorporal", parseInt(e))}
+        />
+        <Input
+          label="Masa Muscular"
+          value={masaMuscularKg || 0}
+          onChange={(e) => updateField("masaMuscularKg", parseInt(e))}
+        />
+        <Input
+          label="Agua Corporal"
+          value={porcentajeAguaCorporal || 0}
+          onChange={(e) => updateField("porcentajeAguaCorporal", parseInt(e))}
+        />
+        <Input
+          label="Grasa Visceral"
+          value={grasaVisceralValor || 0}
+          onChange={(e) => updateField("grasaVisceralValor", parseInt(e))}
+        />
+        <Input
+          label="Edad Metabólica"
+          value={edadMetabolica || 0}
+          onChange={(e) => updateField("edadMetabolica", parseInt(e))}
+        />
       </Section>
     </div>
   );

@@ -6,21 +6,18 @@ import { Tittle } from "./utils";
 
 export default function PhysicalActivity() {
   const {
-    nombres,
-    sexo,
-    fechaEvaluacion,
-    numeroCaso,
-    licenciatura,
-    apellidoMaterno,
-    apellidoPaterno,
-    edadCumplidos,
-    grupo,
+    actividadFisica,
+    minutosActividadFisica,
+    diasActividadFisica,
+    promedioActividadFisica,
+    nivelActividadFisica,
+
     updateField,
     entrevistador,
   } = useFormStore();
   return (
     <div className="px-8 pt-8">
-      <Tittle label="Composición Corporal" />
+      <Tittle label="Actividad Física" />
 
       <Section title="">
         <Input
@@ -30,23 +27,23 @@ export default function PhysicalActivity() {
         />
         <Input
           label="Días de la semana que lo realiza"
-          value={numeroCaso}
-          onChange={(e) => updateField("numeroCaso", e)}
+          value={diasActividadFisica || 0}
+          onChange={(e) => updateField("diasActividadFisica", parseInt(e))}
         />
         <Input
           label="Minutos al día que lo realiza"
-          value={numeroCaso}
-          onChange={(e) => updateField("numeroCaso", e)}
+          value={minutosActividadFisica || 0}
+          onChange={(e) => updateField("minutosActividadFisica", parseInt(e))}
         />
         <Input
           label="Promedio de actividad física (min/semana)"
-          value={entrevistador}
-          onChange={(e) => updateField("entrevistador", e)}
+          value={promedioActividadFisica || 0}
+          onChange={(e) => updateField("promedioActividadFisica", parseInt(e))}
         />
         <Dropdown
           label="Nivel de actividad física"
-          value={fechaEvaluacion}
-          onChange={(val) => updateField("fechaEvaluacion", val)}
+          value={nivelActividadFisica || ""}
+          onChange={(val) => updateField("nivelActividadFisica", val)}
           options={[
             { label: "Sí", value: "yes" },
             { label: "No", value: "no" },

@@ -6,98 +6,150 @@ import { Tittle } from "./utils";
 
 export default function FamilyHistory() {
   const {
-    nombres,
-    sexo,
-    fechaEvaluacion,
-    numeroCaso,
-    licenciatura,
-    apellidoMaterno,
-    apellidoPaterno,
-    edadCumplidos,
-    grupo,
     updateField,
-    entrevistador,
+    diabetesMellitus_1,
+    diabetesMellitus_2,
+    diabetesMellitus_3,
+    numeroFamiliaresDiabetes,
+
+    hta_1,
+    hta_2,
+    hta_3,
+    numeroFamiliaresHta,
+
+    enfermedadesCoronarias_1,
+    enfermedadesCoronarias_2,
+    enfermedadesCoronarias_3,
+    especificarEnfermedadCoronaria,
+    numeroFamiliaresCoronarias,
+
+    neoplasias_1,
+    neoplasias_2,
+    neoplasias_3,
+    especificarTipoNeoplasia,
+    evc,
   } = useFormStore();
   return (
     <div className="px-8 pt-8">
       <Tittle label="Antecedentes Heredofamiliares" />
 
-      <Section title="Antecedentes">
+      {/* DIABETES MELLITUS */}
+      <Section title="Diabetes Mellitus">
         <Input
-          label="Familiares Cardiovasculares"
-          value={entrevistador}
-          onChange={(e) => updateField('entrevistador', e)}
+          label="Familiar 1"
+          value={diabetesMellitus_1}
+          onChange={(e) => updateField("diabetesMellitus_1", e)}
         />
         <Input
-          label="Hipertensión"
-          value={numeroCaso}
-          onChange={(e) => updateField('numeroCaso', e)}
-        />
-        <Dropdown
-          label="Neoplasias"
-          value={fechaEvaluacion}
-          onChange={(val) => updateField('fechaEvaluacion', val)}
-          options={[
-            { label: "Sí", value: "yes" },
-            { label: "No", value: "no" },
-          ]}
-        />
-        
-        <Input
-          label="Diabetes"
-          value={numeroCaso}
-          onChange={(e) => updateField('numeroCaso', e)}
+          label="Familiar 2"
+          value={diabetesMellitus_2}
+          onChange={(e) => updateField("diabetesMellitus_2", e)}
         />
         <Input
-          label="Tabaquismo"
-          value={numeroCaso}
-          onChange={(e) => updateField('numeroCaso', e)}
+          label="Familiar 3"
+          value={diabetesMellitus_3}
+          onChange={(e) => updateField("diabetesMellitus_3", e)}
         />
         <Input
-          label="Parentesco"
-          value={numeroCaso}
-          onChange={(e) => updateField('numeroCaso', e)}
+          label="Total de familiares"
+          // type="number"
+          value={numeroFamiliaresDiabetes}
+          onChange={(e) => updateField("numeroFamiliaresDiabetes", parseInt(e))}
         />
       </Section>
 
-      {/* PERFIL LIPIDICO */}
-      {/* <Section title="Información peronal">
+      {/* HIPERTENSIÓN ARTERIAL (HTA) */}
+      <Section title="Hipertensión Arterial">
         <Input
-          label="Nombres"
-          value={nombres}
-          onChange={(e) => updateField('nombres', e)}
+          label="Familiar 1"
+          value={hta_1}
+          onChange={(e) => updateField("hta_1", e)}
         />
         <Input
-          label="Apellido Paterno"
-          value={apellidoPaterno}
-          onChange={(e) => updateField('apellidoPaterno', e)}
+          label="Familiar 2"
+          value={hta_2}
+          onChange={(e) => updateField("hta_2", e)}
         />
         <Input
-          label="Apellido Materno"
-          value={apellidoMaterno}
-          onChange={(e) => updateField('apellidoMaterno', e)}
+          label="Familiar 3"
+          value={hta_3}
+          onChange={(e) => updateField("hta_3", e)}
         />
         <Input
-          label="Licenciatura"
-          value={licenciatura}
-          onChange={(e) => updateField('licenciatura', e)}
+          label="Total de familiares"
+          value={numeroFamiliaresHta}
+          onChange={(e) => updateField("numeroFamiliaresHta", parseInt(e))}
+        />
+      </Section>
+
+      {/* ENFERMEDADES CORONARIAS */}
+      <Section title="Enfermedades Coronarias">
+        <Input
+          label="Familiar 1"
+          value={enfermedadesCoronarias_1}
+          onChange={(e) => updateField("enfermedadesCoronarias_1", e)}
         />
         <Input
-          label="Grupo"
-          value={grupo}
-          onChange={(e) => updateField('grupo', e)}
+          label="Familiar 2"
+          value={enfermedadesCoronarias_2}
+          onChange={(e) => updateField("enfermedadesCoronarias_2", e)}
         />
         <Input
-          label="Sexo"
-          value={sexo}
-          onChange={(e) => updateField('sexo', 'F')}
+          label="Familiar 3"
+          value={enfermedadesCoronarias_3}
+          onChange={(e) => updateField("enfermedadesCoronarias_3", e)}
         />
         <Input
-          label="Edad cumplida"
-          value={edadCumplidos as unknown as  string}
-          onChange={(e) => updateField('edadCumplidos', parseInt(e))}
+          label="Tipo de enfermedad"
+          value={especificarEnfermedadCoronaria}
+          onChange={(e) => updateField("especificarEnfermedadCoronaria", e)}
         />
-      </Section> */}
+        <Input
+          label="Total de familiares"
+          // type="number"
+          value={numeroFamiliaresCoronarias}
+          onChange={(e) =>
+            updateField("numeroFamiliaresCoronarias", parseInt(e))
+          }
+        />
+      </Section>
+
+      {/* NEOPLASIAS */}
+      <Section title="Neoplasias">
+        <Input
+          label="Familiar 1"
+          value={neoplasias_1}
+          onChange={(e) => updateField("neoplasias_1", e)}
+        />
+        <Input
+          label="Familiar 2"
+          value={neoplasias_2}
+          onChange={(e) => updateField("neoplasias_2", e)}
+        />
+        <Input
+          label="Familiar 3"
+          value={neoplasias_3}
+          onChange={(e) => updateField("neoplasias_3", e)}
+        />
+        <Input
+          label="Tipo de Neoplasia"
+          value={especificarTipoNeoplasia}
+          onChange={(e) => updateField("especificarTipoNeoplasia", e)}
+        />
+      </Section>
+
+      {/* EVC */}
+      <Section title="Otros">
+        <Dropdown
+          label="¿Antecedentes de EVC?"
+          value={evc}
+          onChange={(val) => updateField("evc", val)}
+          options={[
+            { label: "Sí", value: "si" },
+            { label: "No", value: "no" },
+          ]}
+        />
+      </Section>
     </div>
   );
 }
