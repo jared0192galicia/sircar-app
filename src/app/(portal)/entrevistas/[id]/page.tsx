@@ -104,14 +104,14 @@ export default function InterviewPage() {
         initial={{ y: 20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.3, ease: "easeOut" }}
-        className="w-full max-w-6xl rounded-2xl bg-app-panel/50 text-app-title shadow-2xl !overflow-scroll !max-h-screen"
+        className="w-full max-w-6xl rounded-2xl bg-app-panel/50 text-app-title shadow-2xl !overflow-scroll h-[745px] flex flex-col"
       >
         {/* STEPPER */}
         <div className="px-8 pb-1 border-b border-white/10">
           <Stepper steps={5} currentStep={step} />
         </div>
 
-        {sections[step - 1]}
+        <div className="flex-1">{sections[step - 1]}</div>
 
         {/* FOOTER */}
         <div className="flex justify-center gap-4 px-8 py-6 border-t border-white/10">
@@ -136,7 +136,6 @@ export default function InterviewPage() {
               icon={<ArrowRight />}
             />
           )}
-          {/* /> */}
         </div>
       </motion.div>
     </div>
